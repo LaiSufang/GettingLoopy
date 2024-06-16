@@ -17,14 +17,16 @@ public class DieRollar {
         String response;
 
         do {
-            count++;
-            die1 = random.nextInt(6) + 1;
-            die2 = random.nextInt(6) + 1;
-            die3 = random.nextInt(6) + 1;
-            sum = die1 + die2 + die3;
-            System.out.printf("%d\t%d\t%d\t%d\t%d\n", count, die1, die2, die3, sum);
+            do {
+                count++;
+                die1 = random.nextInt(6) + 1;
+                die2 = random.nextInt(6) + 1;
+                die3 = random.nextInt(6) + 1;
+                sum = die1 + die2 + die3;
+                System.out.printf("%d\t%d\t%d\t%d\t%d\n", count, die1, die2, die3, sum);
+            } while (die1 != die2 || die2 != die3);
             System.out.print("Do you want to continue? (y/n): ");
             response = input.next();
-        } while ((die1 != die2 || die2 != die3) && response.equals("y"));
+        } while (response.equals("y"));
     }
 }
